@@ -1,0 +1,39 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package ru.grpc.model;
+
+message BankAccountInfoRequest {
+    AccountType accountType = 1;
+}
+
+message BankAccountInfoResponse {
+    BankAccountInfo bankAccountInfo = 1;
+}
+
+message BankAccountInfo {
+    BankAccount bankAccount = 1;
+    Address address = 2;
+}
+
+message BankAccount {
+    string uuid = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string patronymic = 4;
+    int64 accountNumber = 5;
+    AccountType accountType = 6;
+}
+
+message AccountType {
+    string type = 1;
+}
+
+message Address {
+    string street = 1;
+    string city = 2;
+    string state = 3;
+}
+
+service BankAccountInfoService {
+    rpc sendAccount(BankAccountInfoRequest) returns (BankAccountInfoResponse);
+}
