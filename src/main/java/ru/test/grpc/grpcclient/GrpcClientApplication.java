@@ -20,7 +20,7 @@ public class GrpcClientApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		BankAccountInfo bankAccountInfo = grpcClientService.getBankAccountInfo("DEBIT");
-		System.out.println("BANK:" + bankAccountInfo);
+	//	BankAccountInfo bankAccountInfo = grpcClientService.getBankAccountInfo("DEBIT");
+	//	System.out.println("BANK:" + bankAccountInfo);
 	}
 }

@@ -27,8 +27,9 @@ public class GrpcMapperImpl implements GrpcMapper {
     public BankAccountInfo grpcRespnseToDomainRespnse(BankAccountInfoResponse responseServer) {
 
         //?? есть еще такие преобразования, пока не разобрался, может у тебя получится :)
-        //BankAccountInfo bankAccountInfo = Converter.create().toDomain(BankAccountInfo.class, responseServer);
-
+        BankAccountInfo bankAccountInfo = Converter.create().toDomain(BankAccountInfo.class, responseServer.getBankAccountInfo());
+        System.out.println("after converter " + bankAccountInfo);
+        /*
         Address address = Address.builder()
                 .city(responseServer.getBankAccountInfo().getAddress().getCity())
                 .street(responseServer.getBankAccountInfo().getAddress().getStreet())
@@ -38,7 +39,7 @@ public class GrpcMapperImpl implements GrpcMapper {
         BankAccountInfo bankAccountInfo = BankAccountInfo.builder()
                 .address(address)
                 .build();
-
+*/
         return bankAccountInfo;
     }
 }
